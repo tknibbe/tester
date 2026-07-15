@@ -15,14 +15,14 @@
   },
   {
     "path": "/fhir/r4/DocumentReference",
-    "auth": false,
+    "auth": true,
     "content": "FHIR",
     "headers": {"x-user-info": "eyJ..."},
     "params": {"_sort": "date", "patient.identifier": "http://fhir.nl/fhir/NamingSystem/bsn|128972786"}
   },
   {
     "path": "/fhir/r4/QuestionnaireResponse",
-    "auth": false,
+    "auth": true,
     "content": "FHIR",
     "headers": {"x-user-info": "eyJ..."},
     "params": {"_sort": "-authored", "patient.identifier": "http://fhir.nl/fhir/NamingSystem/bsn|128972786", "questionnaire": "<ID VAN COLLEGA>", "status": "completed"}
