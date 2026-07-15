@@ -15,14 +15,14 @@
   },
   {
     "path": "/fhir/r4/DocumentReference",
-    "auth": true,
+    "auth": false,
     "content": "FHIR",
     "headers": {"x-user-info": "eyJzdWIiOiJkNTIxNDc2Ni0zOGNjLTQ1ODktYmVjMC03ZjhhMzQwZDVjYTgiLCJhZ2Jfb3JnIjoiNDE0MTIwMDEiLCJhZ2Jfc3ViIjoiODQwMDAwMDEiLCJlbWFpbCI6ImRhdmlkZ2VzdGVsK3pvcmdwYXJ0bmVyc0BpdHpvcy5jb20iLCJmYW1pbHlfbmFtZSI6Ikdlc3RlbCIsImdpdmVuX25hbWUiOiJEYXZpZCIsInByZWZlcnJlZF91c2VybmFtZSI6IkRhdmlkIEdlc3RlbCJ9"},
     "params": {"_sort": "date", "patient.identifier": "http://fhir.nl/fhir/NamingSystem/bsn|128972786"}
   },
   {
     "path": "/fhir/r4/QuestionnaireResponse",
-    "auth": true,
+    "auth": false,
     "content": "FHIR",
     "headers": {"x-user-info": "eyJzdWIiOiJkNTIxNDc2Ni0zOGNjLTQ1ODktYmVjMC03ZjhhMzQwZDVjYTgiLCJhZ2Jfb3JnIjoiNDE0MTIwMDEiLCJhZ2Jfc3ViIjoiODQwMDAwMDEiLCJlbWFpbCI6ImRhdmlkZ2VzdGVsK3pvcmdwYXJ0bmVyc0BpdHpvcy5jb20iLCJmYW1pbHlfbmFtZSI6Ikdlc3RlbCIsImdpdmVuX25hbWUiOiJEYXZpZCIsInByZWZlcnJlZF91c2VybmFtZSI6IkRhdmlkIEdlc3RlbCJ9"},
     "params": {"_sort": "-authored", "patient.identifier": "http://fhir.nl/fhir/NamingSystem/bsn|128972786", "questionnaire": "<HEB NOG GEEN questionnaire_id>", "status": "completed"}
