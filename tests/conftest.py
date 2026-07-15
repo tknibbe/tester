@@ -7,4 +7,4 @@ def iris_base_url() -> str:
 
 @pytest.fixture(scope="session")
 def iris_credentials():
-    return (os.environ.get("IRIS_USER", ""), os.environ.get("IRIS_PASSWORD", ""))
+    return (os.environ.get("IRISUSERNAME", ""), os.environ.get("IRISPASSWORD", ""))
