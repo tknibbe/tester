@@ -2,7 +2,7 @@
   {
     "path": "/testsuite/health",
     "method": "GET",
-    "auth": false,
+    "auth": true,
     "content": "JSON"
   }
 ]

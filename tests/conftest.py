@@ -1,12 +1,10 @@
+import os
 import pytest
 
 @pytest.fixture(scope="session")
 def iris_base_url() -> str:
-    return "http://localhost:52773"
+    return os.environ.get("IRIS_BASE_URL", "http://localhost:52773")
 
 @pytest.fixture(scope="session")
 def iris_credentials():
-    return (
-        "IRIS_USER",
-        "IRIS_PASSWORD",
-    )
+    return (os.environ.get("IRIS_USER", ""), os.environ.get("IRIS_PASSWORD", ""))
