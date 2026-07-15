@@ -25,7 +25,6 @@ class ContentType(Enum):
     FHIR = ("application/fhir+json",    _parse_json)   
     XML  = ("application/xml",          _parse_xml)
     TEXT = ("text/plain",               _parse_text)
-    FORM = ("application/x-www-form-urlencoded",    None)#TODO: add parser
     SKIP = (None,                       None)           #if you'd like to skip validation for this endpoint
 
     #   name the header string and body parser so you can access them with:
@@ -39,14 +38,13 @@ class ContentType(Enum):
 @dataclass(frozen=True)
 class Endpoint:
     """class with the minimal info about an endpoint needed for the basic tests"""
-    path: str                               #TODO: figure out whether to make seperate places for /rmh-**-01/ bc this creates long endpoints
+    path: str                              
     method: str = "GET"                     #Default since most tests are GET. set "method":"POST" when needed
     auth: bool = True                       #True if the endpoint requires credentials
     content: ContentType = ContentType.JSON #set the contentType to check the Content-Type header
     headers: Optional[Dict[str, str]] = None#optionally add headers
     params: Optional[Dict[str, str]] = None #optionally add params
-    body_file: str = None                   #path to the body that you'd like to use.
-    body_content: ContentType = ContentType.FHIR #TODO: are all api posts FHIR?
+    body: Optional[Dict[str, str]] = None 
 
 
 def load_endpoints(path: str) -> list[Endpoint]:
@@ -58,8 +56,6 @@ def load_endpoints(path: str) -> list[Endpoint]:
         entry = dict(entry)  # copy, don't mutate
         if "content" in entry:
             entry["content"] = ContentType[entry["content"]]
-        if "body_content" in entry:
-            entry["body_content"] = ContentType[entry["body_content"]]
         endpoints.append(Endpoint(**entry))
     return endpoints
 

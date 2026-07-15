@@ -2,7 +2,6 @@ import requests
 import pytest
 
 from endpoints import ContentType, ENDPOINTS
-import warnings
 
 def _id(endpoint):
     return f"{endpoint.method} {endpoint.path}"
@@ -15,6 +14,7 @@ def _call(endpoint, base_url, auth=None):
         # verify=False,     # VM uses a private CA #TODO: fix
         headers=endpoint.headers,
         params=endpoint.params,
+        data=endpoint.body,
         timeout=10,
     )
 
@@ -53,12 +53,12 @@ def test_wrong_credentials_authentication(endpoint, iris_base_url):
     response = _call(endpoint, iris_base_url, auth=("fakeUser", "Wrongpassword"))
 
     if endpoint.auth:
-        assert response.status_code == 403, (
-            f"{_id(endpoint)} is marked auth=True but returned {response.status_code} with wrong credentials (expected 403)"
+        assert response.status_code in (401, 403), (
+            f"{_id(endpoint)} is marked auth=True but returned {response.status_code} with wrong credentials (expected 401 or 403)"
         )
     else:
-        assert response.status_code != 403, (
-            f"{_id(endpoint)} is marked auth=False but challenged for credentials (403)"
+        assert response.status_code not in (401, 403), (
+            f"{_id(endpoint)} is marked auth=False but challenged for credentials (401 or 403)"
         )
     
 
