@@ -4,5 +4,10 @@
     "method": "GET",
     "auth": true,
     "content": "JSON"
+  },
+  {
+    "path": "/fhir/r4/Patient/_search",
+    "auth": true,
+    "content": "JSON"
   }
 ]
