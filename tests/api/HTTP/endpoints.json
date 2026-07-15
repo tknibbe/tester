@@ -1,6 +1,6 @@
 [ 
   {
-    "path": "/api/health",
+    "path": "/testsuite/health",
     "method": "GET",
     "auth": false,
     "content": "JSON"
